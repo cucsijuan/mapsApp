@@ -1,9 +1,11 @@
 package com.couso.test;
 
-import android.content.Intent;
+
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -35,6 +37,11 @@ public class MainActivity extends AppCompatActivity {
     };
 
     private void setFragment(int i) {
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction ftransaction = fragmentManager.beginTransaction();
+        MapsFragment fragment = new MapsFragment();
+        ftransaction.replace(R.id.content,fragment);
+        ftransaction.commit();
 
     }
 
